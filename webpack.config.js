@@ -11,6 +11,13 @@ var config = {
     filename: "bundle.js",
     publicPath: "/app/"
   },
+  devServer: {
+        contentBase: "./src",
+        inline: true,
+        hot: true,
+        port: 8080
+    },
+
   module: {
     loaders: [
       {
@@ -18,7 +25,8 @@ var config = {
         include: SRC_DIR,
         loader: "babel-loader",
         query: {
-          presets: ["react", "es2015", "stage-2"]
+          presets: ["react", "es2015", "stage-2"],
+          "plugins": ["transform-object-rest-spread"]
         }
       }
     ]
